@@ -37,7 +37,7 @@ const HeaderCartButton = () => {
 	}, [items]);
 
 	return (
-		<button onClick={modalContext.onModal} className={btnClasses}>
+		<button onClick={modalContext.onOpen} className={btnClasses}>
 			<span className={classes.icon}>
 				<CartIcon />
 			</span>

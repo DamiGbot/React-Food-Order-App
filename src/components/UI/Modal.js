@@ -7,7 +7,7 @@ import classes from "./Modal.module.css";
 const Backdrop = (props) => {
 	const context = useContext(DisplayModalContext);
 
-	return <div onClick={context.onModal} className={classes.backdrop}></div>;
+	return <div onClick={context.onClose} className={classes.backdrop}></div>;
 };
 
 const ModalOverlay = (props) => {

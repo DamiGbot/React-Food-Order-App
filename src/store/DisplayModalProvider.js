@@ -4,17 +4,25 @@ import Cart from "../components/Cart/Cart";
 import { DisplayModalContext } from "./DisplayModalContext";
 
 const DisplayModalProvider = (props) => {
-	const [showCart, setShowCart] = useState(false);
+	const [isModal, setIsModal] = useState(false);
 
 	const showCartHandler = () => {
-		setShowCart((prevState) => {
-			return !prevState;
-		});
+		setIsModal(true);
+	};
+
+	const closeModalHandler = () => {
+		setIsModal(false);
 	};
 
 	return (
-		<DisplayModalContext.Provider value={{ onModal: showCartHandler }}>
-			{showCart && <Cart />}
+		<DisplayModalContext.Provider
+			value={{
+				onModal: isModal,
+				onOpen: showCartHandler,
+				onClose: closeModalHandler,
+			}}
+		>
+			{isModal && <Cart />}
 			{props.children}
 		</DisplayModalContext.Provider>
 	);
